@@ -1,0 +1,38 @@
+{% extends "bass.html" %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .fixed-button {
+            position: fixed;
+            bottom: 20px; /* المسافة من أسفل الصفحة */
+            right: 20px;  /* المسافة من اليمين */
+            padding: 10px 20px;
+            background-color:rgb(19, 5, 145); /* لون الخلفية */
+            color: white; /* لون النص */
+            border: none; /* إزالة الحدود */
+            border-radius: 5px; /* جعل الحواف دائرية */
+            cursor: pointer; /* تغيير شكل المؤشر عند المرور فوق الزر */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1> You can add a post </h1>
+    </header>
+
+    <button id="toggle-form"> Add post </button>
+    <section id="add-post" class="hidden">
+        <h2> Add a new post </h2>
+        <form id="post-form" method="POST">
+            {% csrf_token %}
+            {{ pro }}
+            <button type="submit">publish</button>
+        </form>
+    </section>
+
+<a class="fixed-button" href="/">POST</a>
+</body>
+</html>
+{% endblock content %}
+

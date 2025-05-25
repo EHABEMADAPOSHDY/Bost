@@ -1,0 +1,35 @@
+{% extends "bass.html" %}
+{% block post %}
+<body>
+    <header class="article-header">
+        <h1>All articles</h1>
+    </header>
+
+    
+        {% for post in postall %}
+        <main class="article-container">
+         <article class="article-content">
+            <p style="color: red; text-align: center; margin-top: 50px;">BOST</p>
+            <h2 style="color: green; text-align: center; margin-top: 50px;">address</h2>
+            <h4 style="text-align: right; margin-top: 20px;">{{post.titel}}</h4>
+            <h2 style="color: blue; text-align: center; margin-top: 50px;">The topic</h2>
+            <h4 style="text-align: right; margin-top: 20px;">{{post.article}}</h4>
+        {% if post.image %}
+            <h2 class="centered-text" style="color: purple; text-align: center; margin-top: 50px;">The image</h2>
+            <div style="text-align: center; margin-top: 20px;">
+                <img src="{{ post.image.url }}" alt="Post Image" style="max-width: 100%; height: auto; border-radius: 10px;">
+            </div>
+    4{% endif %}
+         </article>
+        </main>
+        {% endfor %} 
+        <a href="/index" class="back-button"> 🏠 Add post 🏠 </a>
+    
+
+    <footer class="article-footer">
+        <p>© 2025 جميع الحقوق محفوظة</p>
+    </footer>
+</body>
+</html>
+
+{% endblock post %}
